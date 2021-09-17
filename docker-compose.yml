@@ -12,11 +12,12 @@ services:
     db:
         image: mysql
         volumes:
-            - ./mysql:/var/lib/mysql
+            - ./mysql-dump:/docker-entrypoint-initdb.d
         ports:
             - "3306:3306"
         environment:
             - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=BlogPHP
     myadmin:
         image: phpmyadmin/phpmyadmin
         ports:

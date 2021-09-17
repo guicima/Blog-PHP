@@ -1,8 +1,7 @@
 <?php
     class Database  
     {
-
-        public static $host = "172.27.0.2";
+        public static $host = "blog-php_db_1";
         public static $port = "3306";
         public static $dbName = "BlogPHP";
         public static $username = "root";
@@ -14,6 +13,7 @@
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $pdo;
         }
+        
         public static function query($query, $params = array())
         {
             $statement = self::connect()->prepare($query);
@@ -24,4 +24,5 @@
             }
         }
     }
+?>
     

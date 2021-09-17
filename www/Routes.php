@@ -2,12 +2,12 @@
 
     Route::set('index.php', function()
     {
-        HomeController::CreateView('Home');
+        HomeController::LoadView('Home');
     });
 
     Route::set('contact', function()
     {
-        ContactController::CreateView('Contact');
+        ContactController::LoadView('Contact');
     });
 
 ?>
