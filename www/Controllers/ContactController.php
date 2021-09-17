@@ -3,9 +3,9 @@
     class ContactController extends Controller 
     {
         
-        public static function test()
+        public static function Mount()
         {
-            print_r(self::query("SELECT * FROM users"));
+            self::$page_title = 'Contact';
         }
 
     }

@@ -5,10 +5,9 @@
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link mx-4 active" href="/">Accueil</a>
-            <a class="nav-item nav-link mx-4" href="#">Articles</a>
-            <a class="nav-item nav-link mx-4 disabled" href="#">À propos</a>
-            <a class="nav-item nav-link" href="/contact" style="margin-left: 1.5rem; margin-right: 3rem">Contact</a>
+            <a class="nav-item nav-link mx-4 <?= self::$url == 'index.php' ? 'active' : '' ?>" href="/">Articles</a>
+            <a class="nav-item nav-link mx-4 <?= self::$url == 'a-propos' ? 'active' : '' ?>" href="/a-propos">À propos</a>
+            <a class="nav-item nav-link <?= self::$url == 'contact' ? 'active' : '' ?>" href="/contact" style="margin-left: 1.5rem; margin-right: 3rem">Contact</a>
             
 
             <div class="dropdown">
