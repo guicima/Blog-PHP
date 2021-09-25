@@ -1,0 +1,28 @@
+.main {
+    display: flex;
+    justify-content: center;
+
+    .mainblock {
+        width: clamp(500px, 65%, 90%);
+        margin-top: 100px;
+        margin-bottom: 100px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+
+        .container-element {
+            background-color: #7D84B2;
+
+            &--full {
+                grid-column: span 4;
+                min-height: 450px;
+            }
+
+            &--half {
+                grid-column: span 2;
+                min-height: 550px;
+            }
+        }
+    }
+
+}
