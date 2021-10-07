@@ -1,5 +1,5 @@
 <div class="main">
-    <div class="mainblock" style="">
+    <div class="mainblock">
         <div class="container-element container-element--full">
             <h1>S'inscrire</h1>
             <form action="/inscription" method="post">
@@ -13,7 +13,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="password" class="form-label">Mot de passe</label>
-                    <input type="password" class="form-control" id="password" placeholder="********">
+                    <input type="password" class="form-control" id="password" name="password" placeholder="********">
                 </div>
 
                 <div class="mb-3">
@@ -21,19 +21,19 @@
                 </div>
 
             </form>
-            
+
             <?php if (self::$success) : ?>
-                <?php 
-                    foreach (self::$success as $message) {
-                        echo $message;
-                    }
+                <?php
+                foreach (self::$success as $message) {
+                    echo $message;
+                }
                 ?>
             <?php endif; ?>
             <?php if (self::$errors) : ?>
-                <?php 
-                    foreach (self::$errors as $message) {
-                        echo $message;
-                    }
+                <?php
+                foreach (self::$errors as $message) {
+                    echo $message;
+                }
                 ?>
             <?php endif; ?>
 
