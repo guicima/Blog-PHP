@@ -9,10 +9,10 @@
             <a class="nav-item nav-link mx-4 <?= self::$url == 'a-propos' ? 'active' : '' ?>" href="/a-propos">À propos</a>
             <a class="nav-item nav-link <?= self::$url == 'contact' ? 'active' : '' ?>" href="/contact" style="margin-left: 1.5rem; margin-right: 3rem">Contact</a>
 
-            <?php if (self::isLoggedIn()) : ?>
+            <?php if (User::isLoggedIn()) : ?>
                 <div class="dropdown">
                     <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="" src="https://avatars.dicebear.com/api/jdenticon/<?= self::isLoggedIn()['username'] ?>.svg?b=%238e9dcc&r=50&size=40" alt="Profil">
+                        <img class="" src="https://avatars.dicebear.com/api/jdenticon/<?= User::isLoggedIn()['username'] ?>.svg?b=%238e9dcc&r=50&size=40" alt="Profil">
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">

@@ -13,7 +13,7 @@ Route::set('contact', function () {
 });
 
 Route::set('connexion', function () {
-    if (LoginController::isLoggedIn()) {
+    if (User::isLoggedIn()) {
         header("Location: /dashboard");
         die();
     }
@@ -21,7 +21,7 @@ Route::set('connexion', function () {
 });
 
 Route::set('inscription', function () {
-    if (RegisterController::isLoggedIn()) {
+    if (User::isLoggedIn()) {
         header("Location: /dashboard");
         die();
     }
@@ -29,13 +29,13 @@ Route::set('inscription', function () {
 });
 
 Route::set('logout', function () {
-    Controller::Logout();
+    User::Logout();
     header("Location: /");
     die();
 });
 
 Route::set('dashboard', function () {
-    if (!DashboardController::isLoggedIn()) {
+    if (!User::isLoggedIn()) {
         header("Location: /connexion");
         die();
     }
