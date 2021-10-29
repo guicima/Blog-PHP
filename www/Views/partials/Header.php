@@ -1,3 +1,6 @@
+<?php
+    $user = AuthController::isLoggedIn() ? new User(AuthController::isLoggedIn()['id']) : null;
+?>
 <nav class="navbar navbar-expand-lg navbar-dark px-4 py-3" style="background-color: #7D84B2;">
     <a class="navbar-brand" href="/">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,16 +12,19 @@
             <a class="nav-item nav-link mx-4 <?= self::$url == 'a-propos' ? 'active' : '' ?>" href="/a-propos">À propos</a>
             <a class="nav-item nav-link <?= self::$url == 'contact' ? 'active' : '' ?>" href="/contact" style="margin-left: 1.5rem; margin-right: 3rem">Contact</a>
 
-            <?php if (User::isLoggedIn()) : ?>
+            <?php if ($user != null) : ?>
                 <div class="dropdown">
                     <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="" src="https://avatars.dicebear.com/api/jdenticon/<?= User::isLoggedIn()['username'] ?>.svg?b=%238e9dcc&r=50&size=40" alt="Profil">
+                        <img class="" src="https://avatars.dicebear.com/api/jdenticon/<?= $user->name ?>.svg?b=%238e9dcc&r=50&size=40" alt="Profil">
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
                         <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <?php if ($user->admin) : ?>
+                            <li><a class="dropdown-item" href="/addpost">Nouvel article</a></li>
+                            <li><a class="dropdown-item" href="/managepost">Gestion des articles</a></li>
+                            <li><a class="dropdown-item" href="#">Gestion des commentaires</a></li>
+                        <?php endif ;?>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

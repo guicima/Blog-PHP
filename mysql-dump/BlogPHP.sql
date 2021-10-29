@@ -38,8 +38,6 @@ CREATE TABLE `comments` (
   `comment_id` int
 );
 
-ALTER TABLE `articles` ADD FOREIGN KEY (`id`) REFERENCES `users` (`id`);
-
 ALTER TABLE `comments` ADD FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 ALTER TABLE `comments` ADD FOREIGN KEY (`article_id`) REFERENCES `articles` (`id`);

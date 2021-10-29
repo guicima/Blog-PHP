@@ -7,10 +7,7 @@
     <title>Blog - <?= self::$page_title ?></title>
     <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <!--link href="../assets/css/style.css" rel="stylesheet"-->
-    <style>
-        <?php include 'assets/css/style.css' ?>
-    </style>
+    <link href="/assets/css/style.css" rel="stylesheet">
     
 </head>
 <body style="background-color: #8e9dcc;">

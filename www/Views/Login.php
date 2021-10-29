@@ -1,6 +1,6 @@
 <div class="main">
     <div class="mainblock">
-        <div class="container-element container-element--full">
+        <div class="container-element block container-element--full">
             <h1>Se connecter</h1>
             <form action="/connexion" method="post">
                 <div class="mb-3">

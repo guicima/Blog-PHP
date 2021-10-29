@@ -12,8 +12,12 @@ Route::set('contact', function () {
     ContactController::LoadView('Contact');
 });
 
+Route::set('post', function () {
+    PostController::LoadView('Post');
+});
+
 Route::set('connexion', function () {
-    if (User::isLoggedIn()) {
+    if (AuthController::isLoggedIn()) {
         header("Location: /dashboard");
         die();
     }
@@ -21,7 +25,7 @@ Route::set('connexion', function () {
 });
 
 Route::set('inscription', function () {
-    if (User::isLoggedIn()) {
+    if (AuthController::isLoggedIn()) {
         header("Location: /dashboard");
         die();
     }
@@ -29,15 +33,37 @@ Route::set('inscription', function () {
 });
 
 Route::set('logout', function () {
-    User::Logout();
+    AuthController::Logout();
     header("Location: /");
     die();
 });
 
 Route::set('dashboard', function () {
-    if (!User::isLoggedIn()) {
+    if (!AuthController::isLoggedIn()) {
         header("Location: /connexion");
         die();
     }
     DashboardController::LoadView('Dashboard');
+});
+
+Route::set('addpost', function () {
+    if (!AuthController::isLoggedIn()) {
+        header("Location: /connexion");
+        die();
+    } elseif (!AuthController::isLoggedIn()['is_admin']) {
+        header("Location: /dashboard");
+        die();
+    }
+    AddPostController::LoadView('AddPost');
+});
+
+Route::set('managepost', function () {
+    if (!AuthController::isLoggedIn()) {
+        header("Location: /connexion");
+        die();
+    } elseif (!AuthController::isLoggedIn()['is_admin']) {
+        header("Location: /dashboard");
+        die();
+    }
+    ManagePostController::LoadView('ManagePost');
 });

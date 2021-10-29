@@ -10,7 +10,7 @@ class LoginController extends Controller
         if (isset($_POST['login'])) {
             $email = $_POST['email'];
             $password = $_POST['password'];
-            $message = User::Login($email, $password);
+            $message = AuthController::Login($email, $password);
             if ($message = "logged in") {
                 header("Location: /dashboard");
                 die();
