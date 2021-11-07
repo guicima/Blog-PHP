@@ -11,7 +11,12 @@ class User extends Database
 
     public function __construct(int $user_id) {
         $this->user_id = $user_id;
-        $user = self::query('SELECT * FROM users WHERE id=:user_id', array(':user_id' => $user_id))[0];
+        $user = self::query(
+            'SELECT * FROM users WHERE id=:user_id', 
+            array(
+                ':user_id' => $user_id
+            )
+        )[0];
         $this->name = $user['username'];
         $this->email = $user['email'];
         $this->admin = $user['is_admin'];

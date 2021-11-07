@@ -1,5 +1,5 @@
 <?php
-    $user = AuthController::isLoggedIn() ? new User(AuthController::isLoggedIn()['id']) : null;
+$user = AuthController::isLoggedIn() ? new User(AuthController::isLoggedIn()['id']) : null;
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark px-4 py-3" style="background-color: #7D84B2;">
     <a class="navbar-brand" href="/">Navbar</a>
@@ -23,8 +23,8 @@
                         <?php if ($user->admin) : ?>
                             <li><a class="dropdown-item" href="/addpost">Nouvel article</a></li>
                             <li><a class="dropdown-item" href="/managepost">Gestion des articles</a></li>
-                            <li><a class="dropdown-item" href="#">Gestion des commentaires</a></li>
-                        <?php endif ;?>
+                            <li><a class="dropdown-item" href="/managecomment">Gestion des commentaires</a></li>
+                        <?php endif; ?>
                         <li>
                             <hr class="dropdown-divider">
                         </li>

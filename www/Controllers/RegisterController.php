@@ -12,7 +12,16 @@
                 $email = $_POST['email'];
                 $password = $_POST['password'];
 
-                if (!self::query('SELECT username FROM users WHERE username=:username', array(':username' => $username)) && !self::query('SELECT email FROM users WHERE email=:email', array(':email' => $email))) {
+                if (
+                    !self::query(
+                        'SELECT username FROM users WHERE username=:username', 
+                        array(':username' => $username)
+                    ) && 
+                    !self::query(
+                        'SELECT email FROM users WHERE email=:email', 
+                        array(':email' => $email)
+                    )
+                ) {
 
                     if (strlen($username) >= 3 && strlen($username) <= 32) {
                         if (preg_match('/[a-zZ-Z0-9_]+/', $username)) {
@@ -20,7 +29,14 @@
 
                                 if (strlen($password) >= 8 && strlen($password) <= 32) {
     
-                                    self::query('INSERT INTO users VALUE (null, :username, :email, :password, 0, null, null, null)', array(':username' => $username, ':password' => password_hash($password, PASSWORD_BCRYPT), ':email' => $email));
+                                    self::query(
+                                        'INSERT INTO users VALUE (null, :username, :email, :password, 0, null, null, null)', 
+                                        array(
+                                            ':username' => $username, 
+                                            ':password' => password_hash($password, PASSWORD_BCRYPT), 
+                                            ':email' => $email
+                                        )
+                                    );
                                     self::$success[] = 'success';
                                     
                                 } else {

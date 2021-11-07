@@ -67,3 +67,14 @@ Route::set('managepost', function () {
     }
     ManagePostController::LoadView('ManagePost');
 });
+
+Route::set('managecomment', function () {
+    if (!AuthController::isLoggedIn()) {
+        header("Location: /connexion");
+        die();
+    } elseif (!AuthController::isLoggedIn()['is_admin']) {
+        header("Location: /dashboard");
+        die();
+    }
+    ManageCommentController::LoadView('ManageComment');
+});

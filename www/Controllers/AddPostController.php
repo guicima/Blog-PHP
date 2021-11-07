@@ -15,9 +15,21 @@
                     $post = new Post();
                 }
                 if ($_POST['addpost'] == 'draft') {
-                    $post->fill($_POST['title'], $_POST['description'], $_POST['content'], 'DRAFT');
+                    $post->fill(
+                        $_POST['title'], 
+                        $_POST['description'], 
+                        $_POST['content'], 
+                        'DRAFT'
+                    );
+
                 } elseif($_POST['addpost'] == 'public') {
-                    $post->fill($_POST['title'], $_POST['description'], $_POST['content'], 'PUBLIC');
+                    $post->fill(
+                        $_POST['title'], 
+                        $_POST['description'], 
+                        $_POST['content'], 
+                        'PUBLIC'
+                    );
+
                 }
                 $post->save();
                 header("Location: /managepost");
