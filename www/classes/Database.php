@@ -1,7 +1,7 @@
 <?php
     class Database  
     {
-        public static $host = "blog-php_db_1";
+        public static $host = "blog-php-db";
         public static $port = "3306";
         public static $dbName = "BlogPHP";
         public static $username = "root";

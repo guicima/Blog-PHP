@@ -28,13 +28,16 @@
                             if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
                                 if (strlen($password) >= 8 && strlen($password) <= 32) {
-    
+                                    $now = new DateTime('NOW');
+                                    
                                     self::query(
-                                        'INSERT INTO users VALUE (null, :username, :email, :password, 0, null, null, null)', 
+                                        'INSERT INTO users VALUE (null, :username, :email, :password, 0, null, :modified_at, :created_at)', 
                                         array(
                                             ':username' => $username, 
                                             ':password' => password_hash($password, PASSWORD_BCRYPT), 
-                                            ':email' => $email
+                                            ':email' => $email,
+                                            ':modified_at' => $now->format('c'),
+                                            ':created_at' => $now->format('c'),
                                         )
                                     );
                                     self::$success[] = 'success';
