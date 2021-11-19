@@ -6,12 +6,12 @@
             ?>
             <div class="d-flex flex-row justify-content-evenly align-items-center h-100">
                 <div class="w-25">
-                    <img class="w-100" src="https://avatars.dicebear.com/api/jdenticon/<?= $user->name ?>.svg?b=%238e9dcc&r=50" alt="Profil">
+                    <img class="w-100" src="https://avatars.dicebear.com/api/jdenticon/<?= htmlentities( $user->name ) ?>.svg?b=%238e9dcc&r=50" alt="Profil">
                 </div>
                 <div>
                     <h1>Dashboard</h1>
-                    <p><?= $user->name ?></p>
-                    <p><?= $user->email ?></p>
+                    <p><?= htmlentities( $user->name ) ?></p>
+                    <p><?= htmlentities( $user->email ) ?></p>
                 </div>
             </div>
         </div>

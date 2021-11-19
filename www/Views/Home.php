@@ -7,10 +7,10 @@
                         <img class="image" src="/assets/images/unset.jpg" alt="">
                     </div>
                     <div class="content-box">
-                        <h1><?= $post->title ?></h1>
-                        <p><?= $post->tiny_text ?></p>
+                        <h1><?= htmlentities( $post->title ) ?></h1>
+                        <p><?= htmlentities( $post->tiny_text ) ?></p>
                     </div>
-                    <a class="more" href="/post&id=<?= $post->id ?>">Lire plus</a>
+                    <a class="more" href="/post&id=<?= htmlentities( $post->id ) ?>">Lire plus</a>
                 </div>
             <?php endforeach; ?>
         <?php endif; ?>

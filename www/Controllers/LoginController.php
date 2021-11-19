@@ -7,13 +7,13 @@ class LoginController extends Controller
     {
         self::$page_title = 'Connexion';
 
-        if (isset($_POST['login'])) {
-            $email = $_POST['email'];
-            $password = $_POST['password'];
+        if (!is_null(SuperPost::get('login'))) {
+            $email = SuperPost::get('email');
+            $password = SuperPost::get('password');
             $message = AuthController::Login($email, $password);
             if ($message = "logged in") {
                 header("Location: /dashboard");
-                die();
+                exit();
             } else {
                 self::$errors[] = $message;
             }

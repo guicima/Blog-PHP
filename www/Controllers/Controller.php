@@ -9,7 +9,7 @@ class Controller extends Database
 
     public static function LoadView(string $viewName): void
     {
-        self::$url = $_GET['url'];
+        self::$url = SuperGet::get('url');
         static::Mount();
 
         require_once("./Views/partials/Head.php");

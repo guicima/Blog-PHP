@@ -19,7 +19,7 @@ Route::set('post', function () {
 Route::set('connexion', function () {
     if (AuthController::isLoggedIn()) {
         header("Location: /dashboard");
-        die();
+        exit();
     }
     LoginController::LoadView('Login');
 });
@@ -27,7 +27,7 @@ Route::set('connexion', function () {
 Route::set('inscription', function () {
     if (AuthController::isLoggedIn()) {
         header("Location: /dashboard");
-        die();
+        exit();
     }
     RegisterController::LoadView('Register');
 });
@@ -35,13 +35,13 @@ Route::set('inscription', function () {
 Route::set('logout', function () {
     AuthController::Logout();
     header("Location: /");
-    die();
+    exit();
 });
 
 Route::set('dashboard', function () {
     if (!AuthController::isLoggedIn()) {
         header("Location: /connexion");
-        die();
+        exit();
     }
     DashboardController::LoadView('Dashboard');
 });
@@ -49,10 +49,10 @@ Route::set('dashboard', function () {
 Route::set('addpost', function () {
     if (!AuthController::isLoggedIn()) {
         header("Location: /connexion");
-        die();
+        exit();
     } elseif (!AuthController::isLoggedIn()['is_admin']) {
         header("Location: /dashboard");
-        die();
+        exit();
     }
     AddPostController::LoadView('AddPost');
 });
@@ -60,10 +60,10 @@ Route::set('addpost', function () {
 Route::set('managepost', function () {
     if (!AuthController::isLoggedIn()) {
         header("Location: /connexion");
-        die();
+        exit();
     } elseif (!AuthController::isLoggedIn()['is_admin']) {
         header("Location: /dashboard");
-        die();
+        exit();
     }
     ManagePostController::LoadView('ManagePost');
 });
@@ -71,10 +71,10 @@ Route::set('managepost', function () {
 Route::set('managecomment', function () {
     if (!AuthController::isLoggedIn()) {
         header("Location: /connexion");
-        die();
+        exit();
     } elseif (!AuthController::isLoggedIn()['is_admin']) {
         header("Location: /dashboard");
-        die();
+        exit();
     }
     ManageCommentController::LoadView('ManageComment');
 });

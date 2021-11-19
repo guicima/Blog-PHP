@@ -3,11 +3,20 @@ $red: #F2A7A7;
 $yellow: #F2DBA7;
 $light: #D9DBF1;
 $medium: #8E9DCC;
+$medium-dark: #808BBC;
 $dark: #7D84B2;
 
 .main {
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+
+    .header-image {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
 
     .mainblock {
         width: clamp(500px, 65%, 90%);
@@ -16,11 +25,19 @@ $dark: #7D84B2;
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 30px;
+        
+        &.no-margin-top {
+            margin-top: 0;
+        }
 
         .container-element {
             background-color: $dark;
             display: flex;
             position: relative;
+
+            &.medium-dark {
+                background-color: $medium-dark;
+            }
 
             &.block {
                 display: block;
@@ -31,6 +48,9 @@ $dark: #7D84B2;
                 grid-column: span 4;
                 height: 450px;
                 width: 100%;
+                &.unconstrained {
+                    height: auto;
+                }
 
                 .img-container {
                     width: 50%;
@@ -38,7 +58,9 @@ $dark: #7D84B2;
                     overflow: hidden;
 
                     .image {
-                        height: 100%;
+                        min-height: 100%;
+                        width: 100%;
+                        object-fit: cover;
                     }
                 }
 
@@ -70,6 +92,14 @@ $dark: #7D84B2;
             .content-box {
                 padding: 25px;
                 color: $light;
+                
+                &--full {
+                    width: 100%;
+                }
+
+                &.pad-right-larger {
+                    padding-right: 70px;
+                }
             }
 
             .more {
@@ -78,11 +108,41 @@ $dark: #7D84B2;
                 position: absolute;
                 bottom: 25px;
                 right: 25px;
+                border: none;
+                background: none;
                 &:hover {
                     opacity: .6;
                 }
             }
         }
+    }
+
+    /*-------Utilities--------*/
+    .input-field {
+        display: block;
+        width: 100%;
+        padding: 10px 15px;
+        background: $light;
+        border: none;
+        border-bottom: 5px solid $light;
+        transition: .3s;
+        outline: none;
+
+        &:focus {
+            border-bottom: 5px solid $green;
+        }
+    }
+
+    .background-dark {
+        background-color: $dark;
+    }
+
+    .background-medium-dark {
+        background-color: $medium-dark;
+    }
+
+    .background-medium {
+        background-color: $medium;
     }
 
 }

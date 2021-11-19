@@ -8,21 +8,21 @@
         {
             self::$page_title = 'Nouvel article';
 
-            if (!empty($_GET['id']) && self::query(
+            if (!empty(SuperGet::get('id')) && self::query(
                 'SELECT * FROM articles WHERE id=:postid', 
-                array(':postid' => $_GET['id'])
+                array(':postid' => SuperGet::get('id'))
             )[0]) {
 
-                static::$post = new Post($_GET['id']);
+                static::$post = new Post(SuperGet::get('id'));
                 
-                if (isset($_POST['comment'])) {
+                if (!is_null(SuperPost::get('comment'))) {
                     $comment = new Comment();
                     $comment->fill(
-                        intval($_POST['user_id']), 
-                        intval($_GET['id']), 
-                        $_POST['text'], 
-                        isset($_POST['response_id']) ? true : false, 
-                        $_POST['response_id'] ?? null,
+                        intval(SuperPost::get('user_id')), 
+                        intval(SuperGet::get('id')), 
+                        SuperPost::get('text'), 
+                        !is_null(SuperPost::get('response_id')) ? true : false, 
+                        SuperPost::get('response_id'),
                     );
                     $comment->save();
                 }

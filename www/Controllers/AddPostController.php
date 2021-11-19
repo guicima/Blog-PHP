@@ -7,26 +7,26 @@
         {
             self::$page_title = 'Nouvel article';
 
-            if (isset($_POST['addpost'])) {
-                if (isset($_POST['postid'])) {
-                    $post = new Post($_POST['postid']);
+            if (!is_null(SuperPost::get('addpost'))) {
+                if (!is_null(SuperPost::get('postid'))) {
+                    $post = new Post(SuperPost::get('postid'));
                     
                 } else {
                     $post = new Post();
                 }
-                if ($_POST['addpost'] == 'draft') {
+                if (SuperPost::get('addpost') == 'draft') {
                     $post->fill(
-                        $_POST['title'], 
-                        $_POST['description'], 
-                        $_POST['content'], 
+                        SuperPost::get('title'), 
+                        SuperPost::get('description'), 
+                        SuperPost::get('content'), 
                         'DRAFT'
                     );
 
-                } elseif($_POST['addpost'] == 'public') {
+                } elseif(SuperPost::get('addpost') == 'public') {
                     $post->fill(
-                        $_POST['title'], 
-                        $_POST['description'], 
-                        $_POST['content'], 
+                        SuperPost::get('title'), 
+                        SuperPost::get('description'), 
+                        SuperPost::get('content'), 
                         'PUBLIC'
                     );
 

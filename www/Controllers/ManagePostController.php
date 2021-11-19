@@ -7,23 +7,23 @@
         {
             self::$page_title = 'Gestion d\'article';
 
-            if (isset($_POST['posttodraft'])) {
-                $post = new Post($_POST['posttodraft']);
+            if (!is_null(SuperPost::get('posttodraft'))) {
+                $post = new Post(SuperPost::get('posttodraft'));
                 $post->toDraft();
                 $post->save();
 
-            } elseif (isset($_POST['posttopublic'])) {
-                $post = new Post($_POST['posttopublic']);
+            } elseif (!is_null(SuperPost::get('posttopublic'))) {
+                $post = new Post(SuperPost::get('posttopublic'));
                 $post->toPublic();
                 $post->save();
 
-            } elseif (isset($_POST['posttotrash'])) {
-                $post = new Post($_POST['posttotrash']);
+            } elseif (!is_null(SuperPost::get('posttotrash'))) {
+                $post = new Post(SuperPost::get('posttotrash'));
                 $post->toTrash();
                 $post->save();
                 
-            } elseif (isset($_POST['deletepost'])) {
-                $post = new Post($_POST['deletepost']);
+            } elseif (!is_null(SuperPost::get('deletepost'))) {
+                $post = new Post(SuperPost::get('deletepost'));
                 $post->delete();
             }
         }

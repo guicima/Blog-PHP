@@ -7,7 +7,7 @@
         {
             self::$validRoutes[] = $route;
 
-            if ($_GET['url'] == $route) {
+            if (SuperGet::get('url') == $route) {
                 $function->__invoke();
             }
         }

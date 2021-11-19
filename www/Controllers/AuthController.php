@@ -43,22 +43,22 @@ class AuthController extends Database
                 setcookie('tokenrefresh', 1, time() + 60 * 60 * 24 * 3, '/', NULL, NULL, TRUE);
                 return 'logged in';
             } else {
-                return 'password incorrect';
+                return 'Mot de passe incorrect';
             }
         } else {
-            return 'user do not exist';
+            return 'Utilisateur n\'existe pas';
         }
     }
 
     public static function isLoggedIn(): mixed
     {
-        if (isset($_COOKIE['AuthToken'])) {
-            if (self::query('SELECT user_id FROM auth WHERE token=:token', array(':token' => hash('sha256', $_COOKIE['AuthToken'])))) {
+        if (!is_null(SuperCookie::get('AuthToken'))) {
+            if (self::query('SELECT user_id FROM auth WHERE token=:token', array(':token' => hash('sha256', SuperCookie::get('AuthToken'))))) {
 
                 $user_id = self::query(
                     'SELECT user_id FROM auth WHERE token=:token', 
                     array(
-                        ':token' => hash('sha256', $_COOKIE['AuthToken'])
+                        ':token' => hash('sha256', SuperCookie::get('AuthToken'))
                     )
                 )[0]['user_id'];
 
@@ -67,7 +67,7 @@ class AuthController extends Database
                     array(':user_id' => $user_id)
                 )[0];
 
-                if (isset($_COOKIE['tokenrefresh'])) {
+                if (!is_null(SuperCookie::get('tokenrefresh'))) {
                     return $user;
                 } else {
                     $cryptostrong = true;
@@ -83,7 +83,7 @@ class AuthController extends Database
 
                     self::query(
                         'DELETE FROM auth WHERE token=:token', 
-                        array(':token' => hash('sha256', $_COOKIE['AuthToken']))
+                        array(':token' => hash('sha256', SuperCookie::get('AuthToken')))
                     );
 
                     setcookie('AuthToken', $token, time() + 60 * 60 * 24 * 7, '/', NULL, NULL, TRUE);
@@ -98,17 +98,17 @@ class AuthController extends Database
 
     public static function Logout(): void
     {
-        if (isset($_COOKIE['AuthToken'])) {
+        if (!is_null(SuperCookie::get('AuthToken'))) {
 
             self::query(
                 'DELETE FROM auth WHERE token=:token', 
-                array(':token' => hash('sha256', $_COOKIE['AuthToken']))
+                array(':token' => hash('sha256', SuperCookie::get('AuthToken')))
             );
 
-            unset($_COOKIE['AuthToken']);
+            SuperCookie::forget('AuthToken');
 
-            if (isset($_COOKIE['tokenrefresh'])) {
-                unset($_COOKIE['tokenrefresh']);
+            if (!is_null(SuperCookie::get('tokenrefresh'))) {
+                SuperCookie::forget('tokenrefresh');
             }
         }
     }

@@ -7,10 +7,10 @@
         {
             self::$page_title = 'S\'inscrire';
             
-            if (isset($_POST['createaccount'])) {
-                $username = $_POST['username'];
-                $email = $_POST['email'];
-                $password = $_POST['password'];
+            if (!is_null(SuperPost::get('createaccount'))) {
+                $username = SuperPost::get('username');
+                $email = SuperPost::get('email');
+                $password = SuperPost::get('password');
 
                 if (
                     !self::query(

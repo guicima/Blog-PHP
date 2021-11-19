@@ -3,8 +3,8 @@
         <div class="container-element block container-element--full">
             <?php
                 //$user = new User(AuthController::isLoggedIn()['id']);
-                if (!empty($_GET['postid']) && self::query('SELECT * FROM articles WHERE id=:postid', array(':postid' => $_GET['postid']))) {
-                    $modifypost = self::query('SELECT * FROM articles WHERE id=:postid', array(':postid' => $_GET['postid']))[0];
+                if (!empty(SuperGet::get('postid') && self::query('SELECT * FROM articles WHERE id=:postid', array(':postid' => SuperGet::get('postid'))))) {
+                    $modifypost = self::query('SELECT * FROM articles WHERE id=:postid', array(':postid' => SuperGet::get('postid')))[0];
                 } else {
                     $modifypost = null;
                 }
@@ -14,20 +14,20 @@
             <form action="/addpost" method="post">
 
                 <?php if($modifypost) : ?>
-                    <input type="number" value="<?= $_GET['postid'] ?>" name="postid" class="visually-hidden">
+                    <input type="number" value="<?= htmlentities( SuperGet::get('postid') ) ?>" name="postid" class="visually-hidden">
                 <?php endif ?>
 
                 <div class="mb-3">
                     <label for="title" class="form-label">Titre</label>
-                    <input type="text" class="form-control" maxlength="32" id="title" name="title" value="<?= $modifypost ? $modifypost['title'] : '' ?>" placeholder="Titre">
+                    <input type="text" class="form-control" maxlength="32" id="title" name="title" value="<?= htmlentities( $modifypost ? $modifypost['title'] : '' ) ?>" placeholder="Titre">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" maxlength="380" id="description" name="description" value="<?= $modifypost ? $modifypost['tiny_text'] : '' ?>" placeholder="Petite description">
+                    <input type="text" class="form-control" maxlength="380" id="description" name="description" value="<?= htmlentities( $modifypost ? $modifypost['tiny_text'] : '' ) ?>" placeholder="Petite description">
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label">Contenu</label>
-                    <textarea type="text" class="form-control" id="content" name="content" placeholder="contenu"><?= $modifypost ? $modifypost['text'] : '' ?></textarea>
+                    <textarea type="text" class="form-control" id="content" name="content" placeholder="contenu"><?= htmlentities( $modifypost ? $modifypost['text'] : '' ) ?></textarea>
                 </div>
 
                 <div class="mb-3">
