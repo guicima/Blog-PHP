@@ -15,6 +15,10 @@
   /*-------Utilities--------*/
 }
 
+.main * {
+  color: #D9DBF1;
+}
+
 .main .header-image {
   width: 100%;
   height: 400px;
@@ -148,7 +152,7 @@
 }
 
 .main .background-dark {
-  background-color: #7D84B2;
+  background-color: #7077A6;
 }
 
 .main .background-medium-dark {

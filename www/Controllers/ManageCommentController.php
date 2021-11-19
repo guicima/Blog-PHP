@@ -7,17 +7,17 @@
         {
             self::$page_title = 'Gestion des commentaires';
 
-            if (!is_null(SuperPost::get('commenttodraft'))) {
+            if (!(SuperPost::get('commenttodraft') === null)) {
                 $comment = new Comment(SuperPost::get('commenttodraft'));
                 $comment->toDraft();
                 $comment->save();
 
-            } elseif (!is_null(SuperPost::get('commenttopublic'))) {
+            } elseif (!(SuperPost::get('commenttopublic') === null)) {
                 $comment = new Comment(SuperPost::get('commenttopublic'));
                 $comment->toPublic();
                 $comment->save();
                 
-            } elseif (!is_null(SuperPost::get('deletecomment'))) {
+            } elseif (!(SuperPost::get('deletecomment') === null)) {
                 $comment = new Comment(SuperPost::get('deletecomment'));
                 $comment->delete();
             }

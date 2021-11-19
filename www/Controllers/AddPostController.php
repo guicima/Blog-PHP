@@ -7,8 +7,8 @@
         {
             self::$page_title = 'Nouvel article';
 
-            if (!is_null(SuperPost::get('addpost'))) {
-                if (!is_null(SuperPost::get('postid'))) {
+            if (!(SuperPost::get('addpost') === null)) {
+                if (!(SuperPost::get('postid') === null)) {
                     $post = new Post(SuperPost::get('postid'));
                     
                 } else {

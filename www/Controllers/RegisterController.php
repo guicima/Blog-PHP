@@ -7,7 +7,7 @@
         {
             self::$page_title = 'S\'inscrire';
             
-            if (!is_null(SuperPost::get('createaccount'))) {
+            if (!(SuperPost::get('createaccount') === null)) {
                 $username = SuperPost::get('username');
                 $email = SuperPost::get('email');
                 $password = SuperPost::get('password');

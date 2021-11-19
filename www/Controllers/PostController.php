@@ -15,13 +15,13 @@
 
                 static::$post = new Post(SuperGet::get('id'));
                 
-                if (!is_null(SuperPost::get('comment'))) {
+                if (!(SuperPost::get('comment') === null)) {
                     $comment = new Comment();
                     $comment->fill(
                         intval(SuperPost::get('user_id')), 
                         intval(SuperGet::get('id')), 
                         SuperPost::get('text'), 
-                        !is_null(SuperPost::get('response_id')) ? true : false, 
+                        !(SuperPost::get('response_id') === null) ? true : false, 
                         SuperPost::get('response_id'),
                     );
                     $comment->save();

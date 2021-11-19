@@ -52,7 +52,7 @@ class AuthController extends Database
 
     public static function isLoggedIn(): mixed
     {
-        if (!is_null(SuperCookie::get('AuthToken'))) {
+        if (!(SuperCookie::get('AuthToken') === null)) {
             if (self::query('SELECT user_id FROM auth WHERE token=:token', array(':token' => hash('sha256', SuperCookie::get('AuthToken'))))) {
 
                 $user_id = self::query(
@@ -67,7 +67,7 @@ class AuthController extends Database
                     array(':user_id' => $user_id)
                 )[0];
 
-                if (!is_null(SuperCookie::get('tokenrefresh'))) {
+                if (!(SuperCookie::get('tokenrefresh') === null)) {
                     return $user;
                 } else {
                     $cryptostrong = true;
@@ -98,7 +98,7 @@ class AuthController extends Database
 
     public static function Logout(): void
     {
-        if (!is_null(SuperCookie::get('AuthToken'))) {
+        if (!(SuperCookie::get('AuthToken') === null)) {
 
             self::query(
                 'DELETE FROM auth WHERE token=:token', 
@@ -107,7 +107,7 @@ class AuthController extends Database
 
             SuperCookie::forget('AuthToken');
 
-            if (!is_null(SuperCookie::get('tokenrefresh'))) {
+            if (!(SuperCookie::get('tokenrefresh') === null)) {
                 SuperCookie::forget('tokenrefresh');
             }
         }

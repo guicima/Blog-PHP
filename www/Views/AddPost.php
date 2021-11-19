@@ -1,6 +1,6 @@
 <div class="main">
     <div class="mainblock">
-        <div class="container-element block container-element--full">
+        <div class="container-element block container-element--full unconstrained p-5">
             <?php
                 //$user = new User(AuthController::isLoggedIn()['id']);
                 if (!empty(SuperGet::get('postid') && self::query('SELECT * FROM articles WHERE id=:postid', array(':postid' => SuperGet::get('postid'))))) {
@@ -19,15 +19,15 @@
 
                 <div class="mb-3">
                     <label for="title" class="form-label">Titre</label>
-                    <input type="text" class="form-control" maxlength="32" id="title" name="title" value="<?= htmlentities( $modifypost ? $modifypost['title'] : '' ) ?>" placeholder="Titre">
+                    <input type="text" class="input-field" maxlength="32" id="title" name="title" value="<?= htmlentities( $modifypost ? $modifypost['title'] : '' ) ?>" placeholder="Titre">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label">Description</label>
-                    <input type="text" class="form-control" maxlength="380" id="description" name="description" value="<?= htmlentities( $modifypost ? $modifypost['tiny_text'] : '' ) ?>" placeholder="Petite description">
+                    <input type="text" class="input-field" maxlength="380" id="description" name="description" value="<?= htmlentities( $modifypost ? $modifypost['tiny_text'] : '' ) ?>" placeholder="Petite description">
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label">Contenu</label>
-                    <textarea type="text" class="form-control" id="content" name="content" placeholder="contenu"><?= htmlentities( $modifypost ? $modifypost['text'] : '' ) ?></textarea>
+                    <textarea type="text" class="input-field" id="content" name="content" placeholder="contenu"><?= htmlentities( $modifypost ? $modifypost['text'] : '' ) ?></textarea>
                 </div>
 
                 <div class="mb-3">

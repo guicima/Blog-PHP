@@ -7,7 +7,7 @@ class LoginController extends Controller
     {
         self::$page_title = 'Connexion';
 
-        if (!is_null(SuperPost::get('login'))) {
+        if (!(SuperPost::get('login') === null)) {
             $email = SuperPost::get('email');
             $password = SuperPost::get('password');
             $message = AuthController::Login($email, $password);

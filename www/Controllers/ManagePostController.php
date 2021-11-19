@@ -7,22 +7,22 @@
         {
             self::$page_title = 'Gestion d\'article';
 
-            if (!is_null(SuperPost::get('posttodraft'))) {
+            if (!(SuperPost::get('posttodraft') === null)) {
                 $post = new Post(SuperPost::get('posttodraft'));
                 $post->toDraft();
                 $post->save();
 
-            } elseif (!is_null(SuperPost::get('posttopublic'))) {
+            } elseif (!(SuperPost::get('posttopublic') === null)) {
                 $post = new Post(SuperPost::get('posttopublic'));
                 $post->toPublic();
                 $post->save();
 
-            } elseif (!is_null(SuperPost::get('posttotrash'))) {
+            } elseif (!(SuperPost::get('posttotrash') === null)) {
                 $post = new Post(SuperPost::get('posttotrash'));
                 $post->toTrash();
                 $post->save();
                 
-            } elseif (!is_null(SuperPost::get('deletepost'))) {
+            } elseif (!(SuperPost::get('deletepost') === null)) {
                 $post = new Post(SuperPost::get('deletepost'));
                 $post->delete();
             }

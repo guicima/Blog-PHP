@@ -5,12 +5,17 @@ $light: #D9DBF1;
 $medium: #8E9DCC;
 $medium-dark: #808BBC;
 $dark: #7D84B2;
+$very-dark: #7077A6;
 
 .main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    * {
+        color: $light;
+    }
 
     .header-image {
         width: 100%;
@@ -134,7 +139,7 @@ $dark: #7D84B2;
     }
 
     .background-dark {
-        background-color: $dark;
+        background-color: $very-dark;
     }
 
     .background-medium-dark {
