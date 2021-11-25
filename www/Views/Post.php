@@ -10,30 +10,28 @@
             </div>
         </div>
         <div class="container-element block container-element--full unconstrained light">
-            <h1>Commentaires</h1>
+            <h1 class="text-color-light">Commentaires</h1>
             <?php foreach (static::$post->getComments() as $comment) : ?>
-                <div class="d-flex background-dark p-3">
-                    <div>
-                        <img src="https://avatars.dicebear.com/api/jdenticon/<?= htmlentities( $comment->getUser()->name ) ?>.svg?b=%238e9dcc&r=50&w=50" alt="Profil">
-                        <p><?= htmlentities( $comment->getUser()->name ) ?></p>
-
+                <div class="d-flex background-dark p-3 text-color-light">
+                    <div class="pe-3" style="width: 120px">
+                        <img src="https://avatars.dicebear.com/api/jdenticon/<?= htmlentities( $comment->getUser()->name ) ?>.svg?b=%238e9dcc&r=50&w=50" class="w-100" alt="Profil">
+                        <p class="text-break text-center"><?= htmlentities( $comment->getUser()->name ) ?></p>
                     </div>
-                    <div>
+                    <div class="w-100 d-flex flex-column justify-content-between">
                         <p><?= htmlentities( $comment->text ) ?></p>
-                        <p><?= htmlentities( $comment->created_at->format('H\hi d/m/Y') ) ?></p>
+                        <p class="text-end mb-0"><?= htmlentities( $comment->created_at->format('H\hi d/m/Y') ) ?></p>
                     </div>
                 </div>
                 <?php if ($comment->hasResponses()) : ?>
                     <?php foreach ($comment->getResponses() as $response) : ?>
-                        <div class="d-flex ms-5 background-dark p-3">
-                            <div>
-                                <img src="https://avatars.dicebear.com/api/jdenticon/<?= htmlentities( $response->getUser()->name ) ?>.svg?b=%238e9dcc&r=50&w=50" alt="Profil">
-                                <p><?= htmlentities( $response->getUser()->name ) ?></p>
-
+                        <div class="d-flex ms-5 background-dark p-3 text-color-light">
+                            <div class="pe-3" style="width: 85px">
+                                <img src="https://avatars.dicebear.com/api/jdenticon/<?= htmlentities( $response->getUser()->name ) ?>.svg?b=%238e9dcc&r=50&w=50" class="w-100" alt="Profil">
+                                <p class="text-break text-center"><?= htmlentities( $response->getUser()->name ) ?></p>
                             </div>
-                            <div>
+                            <div class="w-100 d-flex flex-column justify-content-between">
                                 <p><?= htmlentities( $response->text ) ?></p>
-                                <p><?= htmlentities( $response->created_at->format('H\hi d/m/Y') ) ?></p>
+                                <p class="text-end mb-0"><?= htmlentities( $response->created_at->format('H\hi d/m/Y') ) ?></p>
                             </div>
                         </div>
                     <?php endforeach; ?>
@@ -41,17 +39,17 @@
 
                 <?php if (AuthController::isLoggedIn()) : ?>
                     <div class="d-flex ms-5 background-dark p-3 mb-5">
-                        <form action="/post&id=<?= htmlentities( static::$post->id ) ?>" method="post">
+                        <form action="/post&id=<?= htmlentities( static::$post->id ) ?>" class="w-100" method="post">
                             <div class="mb-3">
-                                <label for="text" class="form-label">Répondre</label>
-                                <input type="text" class="input-field" maxlength="380" id="text" name="text" placeholder="Commentaire">
+                                <label for="text<?= htmlentities( $comment->id ) ?>" class="form-label text-color-light">Répondre</label>
+                                <input type="text" class="input-field" maxlength="380" id="text<?= htmlentities( $comment->id ) ?>" name="text" placeholder="Commentaire">
                             </div>
                             <input type="number" value="<?= htmlentities( AuthController::isLoggedIn()['id'] ) ?>" name="user_id" class="visually-hidden">
                             <input type="number" value="<?= htmlentities( static::$post->id ) ?>" name="article_id" class="visually-hidden">
                             <input type="number" value="<?= htmlentities( $comment->id ) ?>" name="response_id" class="visually-hidden">
 
-                            <div class="mb-3">
-                                <button type="submit" name="comment" class="btn btn-primary mb-3">Répondre</button>
+                            <div class="text-end">
+                                <button type="submit" name="comment" class="btn btn-link link-color-green">Répondre</button>
                             </div>
                         </form>
                     </div>
@@ -62,15 +60,15 @@
                 <div class="background-dark p-3">
                     <form action="/post&id=<?= htmlentities( static::$post->id ) ?>" method="post">
                         <div class="mb-3">
-                            <label for="text" class="form-label">Commenter</label>
+                            <label for="text" class="form-label text-color-light">Commenter</label>
                             <input type="text" class="input-field" maxlength="380" id="text" name="text" placeholder="Commentaire">
                         </div>
                         <input type="number" value="<?= htmlentities( AuthController::isLoggedIn()['id'] ) ?>" name="user_id" class="visually-hidden">
                         <input type="number" value="<?= htmlentities( static::$post->id ) ?>" name="article_id" class="visually-hidden">
 
-                        <div class="mb-3">
-                        <button type="submit" name="comment" class="btn btn-primary mb-3">Commenter</button>
-                    </div>
+                        <div class="text-end">
+                            <button type="submit" name="comment" class="btn btn-link link-color-green">Commenter</button>
+                        </div>
                 </form>
                 </div>
             <?php endif; ?>

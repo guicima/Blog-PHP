@@ -40,26 +40,32 @@
                                             ':created_at' => $now->format('c'),
                                         )
                                     );
-                                    self::$success[] = 'success';
+                                    SuperCookie::putArray('success', 'Compte créé avec succès.', strtotime('+1 seconds'));
+                                    header("Refresh:0");
                                     
                                 } else {
-                                    self::$errors[] = 'invalid password';
+                                    SuperCookie::putArray('errors', 'Mot de passe invalide.', strtotime('+1 seconds'));
+                                    header("Refresh:0");
                                 }
                                     
                             } else {
-                                self::$errors[] = 'invalid email';
+                                SuperCookie::putArray('errors', 'Email invalide.', strtotime('+1 seconds'));
+                                header("Refresh:0");
                             }
                             
                         } else {
-                            self::$errors[] = 'invalid username';
+                            SuperCookie::putArray('errors', 'Pseudonyme invalide. Ne doit pas contenir de caractères spéciaux', strtotime('+1 seconds'));
+                            header("Refresh:0");
                         }
 
                     } else {
-                        self::$errors[] = 'invalid username';
+                        SuperCookie::putArray('errors', 'Pseudonyme invalide. Doit contenir entre 3 et 32 caractères.', strtotime('+1 seconds'));
+                        header("Refresh:0");
                     }
 
                 } else {
-                    self::$errors[] = 'user already exists';
+                    SuperCookie::putArray('errors', 'Compte déjà existant.', strtotime('+1 seconds'));
+                    header("Refresh:0");
                 }
             }
         }

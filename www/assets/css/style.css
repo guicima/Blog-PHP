@@ -15,10 +15,6 @@
   /*-------Utilities--------*/
 }
 
-.main * {
-  color: #D9DBF1;
-}
-
 .main .header-image {
   width: 100%;
   height: 400px;
@@ -151,15 +147,87 @@
   border-bottom: 5px solid #DBF4A7;
 }
 
-.main .background-dark {
+.background-dark {
   background-color: #7077A6;
 }
 
-.main .background-medium-dark {
+.background-medium-dark {
   background-color: #808BBC;
 }
 
-.main .background-medium {
+.background-medium {
   background-color: #8E9DCC;
+}
+
+.background-green {
+  background-color: #DBF4A7;
+}
+
+.background-red {
+  background-color: #F2A7A7;
+}
+
+.background-yellow {
+  background-color: #F2DBA7;
+}
+
+.text-color-light {
+  color: #D9DBF1;
+}
+
+.text-color-green {
+  color: #DBF4A7;
+}
+
+.text-color-red {
+  color: #F2A7A7;
+}
+
+.text-color-yellow {
+  color: #F2DBA7;
+}
+
+.link-color-light {
+  color: #D9DBF1;
+  text-decoration: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.link-color-light:hover {
+  opacity: 0.7;
+}
+
+.link-color-green {
+  color: #DBF4A7;
+  text-decoration: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.link-color-green:hover {
+  opacity: 0.7;
+}
+
+.link-color-red {
+  color: #F2A7A7;
+  text-decoration: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.link-color-red:hover {
+  opacity: 0.7;
+}
+
+.link-color-yellow {
+  color: #F2DBA7;
+  text-decoration: none;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+.link-color-yellow:hover {
+  opacity: 0.7;
 }
 /*# sourceMappingURL=style.css.map */

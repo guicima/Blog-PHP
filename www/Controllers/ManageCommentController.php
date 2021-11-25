@@ -2,6 +2,8 @@
 
     class ManageCommentController extends Controller 
     {
+
+        public static $comments;
         
         public static function Mount()
         {
@@ -20,6 +22,12 @@
             } elseif (!(SuperPost::get('deletecomment') === null)) {
                 $comment = new Comment(SuperPost::get('deletecomment'));
                 $comment->delete();
+            }
+
+            $variable = self::query('SELECT id FROM comments ORDER BY created_at DESC');
+
+            foreach ($variable as $key => $value) {
+                self::$comments[] = new Comment($value[0]);
             }
         }
 

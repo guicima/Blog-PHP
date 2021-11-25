@@ -13,9 +13,8 @@ $very-dark: #7077A6;
     align-items: center;
     justify-content: center;
 
-    * {
-        color: $light;
-    }
+    
+
 
     .header-image {
         width: 100%;
@@ -138,16 +137,81 @@ $very-dark: #7077A6;
         }
     }
 
-    .background-dark {
-        background-color: $very-dark;
-    }
+}
 
-    .background-medium-dark {
-        background-color: $medium-dark;
-    }
 
-    .background-medium {
-        background-color: $medium;
-    }
+.background-dark {
+    background-color: $very-dark;
+}
 
+.background-medium-dark {
+    background-color: $medium-dark;
+}
+
+.background-medium {
+    background-color: $medium;
+}
+
+.background-green {
+    background-color: $green;
+}
+
+.background-red {
+    background-color: $red;
+}
+
+.background-yellow {
+    background-color: $yellow;
+}
+
+.text-color-light {
+    color: $light;
+}
+
+.text-color-green {
+    color: $green;
+}
+
+.text-color-red {
+    color: $red;
+}
+
+.text-color-yellow {
+    color: $yellow;
+}
+
+.link-color-light {
+    color: $light;
+    text-decoration: none;
+    transition: .3s;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.link-color-green {
+    color: $green;
+    text-decoration: none;
+    transition: .3s;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.link-color-red {
+    color: $red;
+    text-decoration: none;
+    transition: .3s;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.link-color-yellow {
+    color: $yellow;
+    text-decoration: none;
+    transition: .3s;
+    &:hover {
+        opacity: 0.7;
+    }
 }
