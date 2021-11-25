@@ -1,0 +1,29 @@
+version: '2'
+
+services:
+    web:
+        container_name: blog-php-web
+        image: lavoweb/php-8.0
+        ports:
+            - "80:80"
+        volumes:
+            - ./www:/var/www/html
+        links:
+            - db:db
+    db:
+        container_name: blog-php-db
+        image: mysql
+        volumes:
+            - ./mysql-dump:/docker-entrypoint-initdb.d
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=BlogPHP
+    myadmin:
+        container_name: blog-php-myadmin
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - "8080:80"
+        links:
+            - db:db
