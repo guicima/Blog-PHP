@@ -23,3 +23,4 @@ to run in detached mode
 | Apache/PHP    | ``./www``     | [http://localhost/](http://localhost/)           |
 | MySql         | ``./mysql``   | [http://localhost:3306/](http://localhost:3306/) |
 | phpMyAdmin    | none          | [http://localhost:8080/](http://localhost:8080/) |
+| MailHog       | none          | [http://localhost:8025/](http://localhost:8025/) |
