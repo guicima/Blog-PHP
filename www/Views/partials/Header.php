@@ -2,7 +2,7 @@
 $user = AuthController::isLoggedIn() ? new User(AuthController::isLoggedIn()['id']) : null;
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark px-4 py-3" style="background-color: #7D84B2;">
-    <a class="navbar-brand" href="/">Cima</a>
+    <a class="navbar-brand link-color-light" href="/"><img class="me-4" src="/assets/images/logo_light.svg">Cima</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>

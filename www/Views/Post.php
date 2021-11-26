@@ -4,8 +4,12 @@
         <div class="container-element block container-element--full unconstrained">
             <div class="content-box content-box--full">
                 <h1><?= htmlentities( static::$post->title ) ?></h1>
-                <p><?= htmlentities( static::$post->tiny_text ) ?></p>
-                <p><?= htmlentities( static::$post->text ) ?></p>
+                <p class="m-5 fs-5"><b><?= htmlentities( static::$post->tiny_text ) ?></b></p>
+
+                <?php $maintext = explode("\r\n", static::$post->text) ?>
+                <?php foreach ($maintext as $text): ?>
+                    <p class="mx-5 my-3 px-5 fs-6" style="text-align: justify;"><?= htmlentities($text) ?></p>
+                <?php endforeach; ?>
 
             </div>
         </div>
