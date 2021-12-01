@@ -27,13 +27,13 @@
 
                 <?php if (self::$errors) : ?>
                     <?php foreach (self::$errors as $message) : ?>
-                        <div class="alert alert-danger"><?= htmlentities( $message ) ?></div>
+                        <div class="alert alert-danger"><?= escape( $message ) ?></div>
                     <?php endforeach;?>
                 <?php endif; ?>
 
                 <?php if (self::$success) : ?>
                     <?php foreach (self::$success as $message) : ?>
-                        <div class="alert alert-success"><?= htmlentities( $message ) ?></div>
+                        <div class="alert alert-success"><?= escape( $message ) ?></div>
                     <?php endforeach;?>
                 <?php endif; ?>
 

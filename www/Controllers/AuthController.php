@@ -3,7 +3,7 @@
 class AuthController extends Database
 {
 
-    public static function Login(String $email, String $password): String
+    public static function Login(String $email, String $password): void
     {
         if (self::query(
             'SELECT email FROM users WHERE email=:email', 
@@ -41,12 +41,15 @@ class AuthController extends Database
 
                 setcookie('AuthToken', $token, time() + 60 * 60 * 24 * 7, '/', NULL, NULL, TRUE);
                 setcookie('tokenrefresh', 1, time() + 60 * 60 * 24 * 3, '/', NULL, NULL, TRUE);
-                return 'logged in';
+                header("Location: /dashboard");
+                SuperCookie::putArray('success', 'Vous vous êtes connecté.', strtotime('+1 seconds'));
             } else {
-                return 'Mot de passe incorrect';
+                SuperCookie::putArray('errors', 'Mot de passe incorrect.', strtotime('+1 seconds'));
+                header("Refresh:0");
             }
         } else {
-            return 'Utilisateur n\'existe pas';
+            SuperCookie::putArray('errors', "Cet utilisateur n'existe pas", strtotime('+1 seconds'));
+            header("Refresh:0");
         }
     }
 
@@ -110,6 +113,9 @@ class AuthController extends Database
             if (!(SuperCookie::get('tokenrefresh') === null)) {
                 SuperCookie::forget('tokenrefresh');
             }
+
+            SuperCookie::putArray('success', "Vous vous êtes déconnecté", strtotime('+1 seconds'));
+            header("Refresh:0");
         }
     }
 }

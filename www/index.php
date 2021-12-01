@@ -13,4 +13,6 @@ function Autoloader($class_name)
 
 spl_autoload_register('Autoloader');
 
+require_once('Utilities.php');
+
 require_once('Routes.php');

@@ -10,13 +10,7 @@ class LoginController extends Controller
         if (!(SuperPost::get('login') === null)) {
             $email = SuperPost::get('email');
             $password = SuperPost::get('password');
-            $message = AuthController::Login($email, $password);
-            if ($message = "logged in") {
-                header("Location: /dashboard");
-                exit();
-            } else {
-                self::$errors[] = $message;
-            }
+            AuthController::Login($email, $password);
         }
     }
 }

@@ -20,7 +20,7 @@
                 <div class="mb-3">
                     <?php if (self::$errors) : ?>
                         <?php foreach (self::$errors as $message) : ?>
-                            <p><?= htmlentities( $message ) ?></p>
+                            <p><?= escape( $message ) ?></p>
                         <?php endforeach;?>
                     <?php endif; ?>
                 </div>

@@ -25,6 +25,8 @@
                         SuperPost::get('response_id'),
                     );
                     $comment->save();
+                    SuperCookie::putArray('success', "Commentaire ajouté", strtotime('+1 seconds'));
+                    header("Refresh:0");
                 }
 
             } else {

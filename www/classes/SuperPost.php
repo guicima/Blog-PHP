@@ -2,15 +2,15 @@
 
 class SuperPost{
 
-    public static function put($key, $value){
+    public static function put($key, $value) : void {
         $_POST[$key] = $value;
     }
 
-    public static function get($key){
-        return (isset($_POST[$key]) ? $_POST[$key] : null);
+    public static function get($key) : mixed {
+        return (isset($_POST[$key]) ? stripslashes($_POST[$key]) : null);
     }
 
-    public static function forget($key){
+    public static function forget($key) : void {
         unset($_POST[$key]);
     }
 }

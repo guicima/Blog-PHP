@@ -10,29 +10,29 @@
                 }
             ?>
 
-            <h1><?= $modifypost ? 'Modifier' : 'Nouvel' ?> article</h1>
+            <h1 class="text-light"><?= $modifypost ? 'Modifier' : 'Nouvel' ?> article</h1>
             <form action="/addpost" method="post">
 
                 <?php if($modifypost) : ?>
-                    <input type="number" value="<?= htmlentities( SuperGet::get('postid') ) ?>" name="postid" class="visually-hidden">
+                    <input type="number" value="<?= escape( SuperGet::get('postid') ) ?>" name="postid" class="visually-hidden">
                 <?php endif ?>
 
                 <div class="mb-3">
-                    <label for="title" class="form-label">Titre</label>
-                    <input type="text" class="input-field" maxlength="32" id="title" name="title" value="<?= htmlentities( $modifypost ? $modifypost['title'] : '' ) ?>" placeholder="Titre">
+                    <label for="title" class="form-label text-light">Titre</label>
+                    <input type="text" class="input-field" maxlength="32" id="title" name="title" value="<?= escape( $modifypost ? $modifypost['title'] : '' ) ?>" placeholder="Titre">
                 </div>
                 <div class="mb-3">
-                    <label for="description" class="form-label">Description</label>
-                    <input type="text" class="input-field" maxlength="380" id="description" name="description" value="<?= htmlentities( $modifypost ? $modifypost['tiny_text'] : '' ) ?>" placeholder="Petite description">
+                    <label for="description" class="form-label text-light">Description</label>
+                    <input type="text" class="input-field" maxlength="380" id="description" name="description" value="<?= escape( $modifypost ? $modifypost['tiny_text'] : '' ) ?>" placeholder="Petite description">
                 </div>
                 <div class="mb-3">
-                    <label for="content" class="form-label">Contenu</label>
-                    <textarea type="text" class="input-field" id="content" name="content" placeholder="contenu"><?= htmlentities( $modifypost ? $modifypost['text'] : '' ) ?></textarea>
+                    <label for="content" class="form-label text-light">Contenu</label>
+                    <textarea type="text" class="input-field" id="content" name="content" placeholder="Contenu"><?= escape( $modifypost ? $modifypost['text'] : '' ) ?></textarea>
                 </div>
 
-                <div class="mb-3">
-                    <button type="submit" name="addpost" class="btn btn-primary mb-3" value="draft">Ajouter aux brouillons</button>
-                    <button type="submit" name="addpost" class="btn btn-primary mb-3" value="public"><?= $modifypost ? 'Modifier publiquement' : 'Publier' ?></button>
+                <div class="d-flex justify-content-end">
+                    <button type="submit" name="addpost" class="btn btn-link link-color-yellow" value="draft">Ajouter aux brouillons</button>
+                    <button type="submit" name="addpost" class="btn btn-link link-color-green" value="public"><?= $modifypost ? 'Modifier publiquement' : 'Publier' ?></button>
                 </div>
 
             </form>

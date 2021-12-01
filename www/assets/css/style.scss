@@ -1,22 +1,19 @@
-$green: #DBF4A7;
-$red: #F2A7A7;
-$yellow: #F2DBA7;
-$light: #D9DBF1;
-$medium: #8E9DCC;
-$medium-dark: #808BBC;
-$dark: #7D84B2;
-$very-dark: #7077A6;
+$green: #dbf4a7;
+$red: #f2a7a7;
+$yellow: #f2dba7;
+$light: #d9dbf1;
+$medium: #8e9dcc;
+$medium-dark: #808bbc;
+$dark: #7d84b2;
+$very-dark: #7077a6;
 
 .main {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    * {
-        color: $light;
-    }
-
+    min-height: 87vh;
+    
     .header-image {
         width: 100%;
         height: 400px;
@@ -138,16 +135,81 @@ $very-dark: #7077A6;
         }
     }
 
-    .background-dark {
-        background-color: $very-dark;
-    }
+}
 
-    .background-medium-dark {
-        background-color: $medium-dark;
-    }
 
-    .background-medium {
-        background-color: $medium;
-    }
+.background-dark {
+    background-color: $very-dark;
+}
 
+.background-medium-dark {
+    background-color: $medium-dark;
+}
+
+.background-medium {
+    background-color: $medium;
+}
+
+.background-green {
+    background-color: $green;
+}
+
+.background-red {
+    background-color: $red;
+}
+
+.background-yellow {
+    background-color: $yellow;
+}
+
+.text-color-light {
+    color: $light;
+}
+
+.text-color-green {
+    color: $green;
+}
+
+.text-color-red {
+    color: $red;
+}
+
+.text-color-yellow {
+    color: $yellow;
+}
+
+.link-color-light {
+    color: $light;
+    text-decoration: none;
+    transition: .3s;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.link-color-green {
+    color: $green;
+    text-decoration: none;
+    transition: .3s;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.link-color-red {
+    color: $red;
+    text-decoration: none;
+    transition: .3s;
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.link-color-yellow {
+    color: $yellow;
+    text-decoration: none;
+    transition: .3s;
+    &:hover {
+        opacity: 0.7;
+    }
 }
