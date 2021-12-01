@@ -109,7 +109,7 @@ class Post extends Database
         );
         
         if ($comments != null) {
-            foreach ($comments as $key => $comment_id) {
+            foreach ($comments as $comment_id) {
                 $comments_array[] = new Comment($comment_id[0]);
             }
             return $comments_array;

@@ -30,7 +30,7 @@
 
             $variable = self::query('SELECT id FROM articles ORDER BY created_at DESC');
 
-            foreach ($variable as $key => $value) {
+            foreach ($variable as $value) {
                 self::$posts[] = new Post($value[0]);
             }
         }

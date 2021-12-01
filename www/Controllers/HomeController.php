@@ -15,7 +15,7 @@
                 )
             );
 
-            foreach ($variable as $key => $value) {
+            foreach ($variable as $value) {
                 self::$posts[] = new Post($value[0]);
             }
         }

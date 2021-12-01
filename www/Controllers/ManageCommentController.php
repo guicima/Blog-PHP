@@ -26,7 +26,7 @@
 
             $variable = self::query('SELECT id FROM comments ORDER BY created_at DESC');
 
-            foreach ($variable as $key => $value) {
+            foreach ($variable as $value) {
                 self::$comments[] = new Comment($value[0]);
             }
         }

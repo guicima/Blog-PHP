@@ -21,7 +21,7 @@
                 <div class="toast background-green text-success show align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body">
-                        <?= $message ?>
+                        <?= escape($message) ?>
                     </div>
                         <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>
@@ -34,7 +34,7 @@
                 <div class="toast background-red text-danger show align-items-center" role="alert" aria-live="assertive" aria-atomic="true">
                     <div class="d-flex">
                         <div class="toast-body">
-                        <?= $message ?>
+                        <?= escape($message) ?>
                     </div>
                         <button type="button" class="btn-close me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
                     </div>
