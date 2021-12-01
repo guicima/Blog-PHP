@@ -39,7 +39,7 @@
 }
 
 .main .mainblock .container-element {
-  background-color: #7D84B2;
+  background-color: #7d84b2;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -47,7 +47,7 @@
 }
 
 .main .mainblock .container-element.medium-dark {
-  background-color: #808BBC;
+  background-color: #808bbc;
 }
 
 .main .mainblock .container-element.block {
@@ -107,7 +107,7 @@
 
 .main .mainblock .container-element .content-box {
   padding: 25px;
-  color: #D9DBF1;
+  color: #d9dbf1;
 }
 
 .main .mainblock .container-element .content-box--full {
@@ -119,7 +119,7 @@
 }
 
 .main .mainblock .container-element .more {
-  color: #DBF4A7;
+  color: #dbf4a7;
   text-decoration: none;
   position: absolute;
   bottom: 25px;
@@ -136,60 +136,60 @@
   display: block;
   width: 100%;
   padding: 10px 15px;
-  background: #D9DBF1;
+  background: #d9dbf1;
   border: none;
-  border-bottom: 5px solid #D9DBF1;
+  border-bottom: 5px solid #d9dbf1;
   -webkit-transition: .3s;
   transition: .3s;
   outline: none;
 }
 
 .main .input-field:focus {
-  border-bottom: 5px solid #DBF4A7;
+  border-bottom: 5px solid #dbf4a7;
 }
 
 .background-dark {
-  background-color: #7077A6;
+  background-color: #7077a6;
 }
 
 .background-medium-dark {
-  background-color: #808BBC;
+  background-color: #808bbc;
 }
 
 .background-medium {
-  background-color: #8E9DCC;
+  background-color: #8e9dcc;
 }
 
 .background-green {
-  background-color: #DBF4A7;
+  background-color: #dbf4a7;
 }
 
 .background-red {
-  background-color: #F2A7A7;
+  background-color: #f2a7a7;
 }
 
 .background-yellow {
-  background-color: #F2DBA7;
+  background-color: #f2dba7;
 }
 
 .text-color-light {
-  color: #D9DBF1;
+  color: #d9dbf1;
 }
 
 .text-color-green {
-  color: #DBF4A7;
+  color: #dbf4a7;
 }
 
 .text-color-red {
-  color: #F2A7A7;
+  color: #f2a7a7;
 }
 
 .text-color-yellow {
-  color: #F2DBA7;
+  color: #f2dba7;
 }
 
 .link-color-light {
-  color: #D9DBF1;
+  color: #d9dbf1;
   text-decoration: none;
   -webkit-transition: .3s;
   transition: .3s;
@@ -200,7 +200,7 @@
 }
 
 .link-color-green {
-  color: #DBF4A7;
+  color: #dbf4a7;
   text-decoration: none;
   -webkit-transition: .3s;
   transition: .3s;
@@ -211,7 +211,7 @@
 }
 
 .link-color-red {
-  color: #F2A7A7;
+  color: #f2a7a7;
   text-decoration: none;
   -webkit-transition: .3s;
   transition: .3s;
@@ -222,7 +222,7 @@
 }
 
 .link-color-yellow {
-  color: #F2DBA7;
+  color: #f2dba7;
   text-decoration: none;
   -webkit-transition: .3s;
   transition: .3s;

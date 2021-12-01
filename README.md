@@ -7,11 +7,11 @@ Install Docker
 [Get Docker](https://docs.docker.com/get-docker/)
 
 **Start the project**
-```
+```sh
 docker-compose up
 ```
 or 
-```
+```sh
 docker-compose up -d
 ```
 to run in detached mode
