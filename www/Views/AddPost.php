@@ -14,20 +14,20 @@
             <form action="/addpost" method="post">
 
                 <?php if($modifypost) : ?>
-                    <input type="number" value="<?= htmlentities( SuperGet::get('postid') ) ?>" name="postid" class="visually-hidden">
+                    <input type="number" value="<?= escape( SuperGet::get('postid') ) ?>" name="postid" class="visually-hidden">
                 <?php endif ?>
 
                 <div class="mb-3">
                     <label for="title" class="form-label text-light">Titre</label>
-                    <input type="text" class="input-field" maxlength="32" id="title" name="title" value="<?= htmlentities( $modifypost ? $modifypost['title'] : '' ) ?>" placeholder="Titre">
+                    <input type="text" class="input-field" maxlength="32" id="title" name="title" value="<?= escape( $modifypost ? $modifypost['title'] : '' ) ?>" placeholder="Titre">
                 </div>
                 <div class="mb-3">
                     <label for="description" class="form-label text-light">Description</label>
-                    <input type="text" class="input-field" maxlength="380" id="description" name="description" value="<?= htmlentities( $modifypost ? $modifypost['tiny_text'] : '' ) ?>" placeholder="Petite description">
+                    <input type="text" class="input-field" maxlength="380" id="description" name="description" value="<?= escape( $modifypost ? $modifypost['tiny_text'] : '' ) ?>" placeholder="Petite description">
                 </div>
                 <div class="mb-3">
                     <label for="content" class="form-label text-light">Contenu</label>
-                    <textarea type="text" class="input-field" id="content" name="content" placeholder="Contenu"><?= htmlentities( $modifypost ? $modifypost['text'] : '' ) ?></textarea>
+                    <textarea type="text" class="input-field" id="content" name="content" placeholder="Contenu"><?= escape( $modifypost ? $modifypost['text'] : '' ) ?></textarea>
                 </div>
 
                 <div class="d-flex justify-content-end">

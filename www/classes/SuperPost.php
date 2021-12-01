@@ -7,7 +7,7 @@ class SuperPost{
     }
 
     public static function get($key) : mixed {
-        return (isset($_POST[$key]) ? $_POST[$key] : null);
+        return (isset($_POST[$key]) ? stripslashes($_POST[$key]) : null);
     }
 
     public static function forget($key) : void {

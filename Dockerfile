@@ -1,4 +1,4 @@
-FROM lavoweb/php-8.0
+FROM lavoweb/php-8.0:latest
 
 RUN apt-get update &&\
     apt-get install --no-install-recommends --assume-yes --quiet ca-certificates curl git &&\

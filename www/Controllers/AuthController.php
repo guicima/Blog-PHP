@@ -43,7 +43,6 @@ class AuthController extends Database
                 setcookie('tokenrefresh', 1, time() + 60 * 60 * 24 * 3, '/', NULL, NULL, TRUE);
                 header("Location: /dashboard");
                 SuperCookie::putArray('success', 'Vous vous êtes connecté.', strtotime('+1 seconds'));
-                exit();
             } else {
                 SuperCookie::putArray('errors', 'Mot de passe incorrect.', strtotime('+1 seconds'));
                 header("Refresh:0");

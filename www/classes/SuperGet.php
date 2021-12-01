@@ -7,7 +7,7 @@ class SuperGet{
     }
 
     public static function get($key) : mixed {
-        return (isset($_GET[$key]) ? $_GET[$key] : null);
+        return (isset($_GET[$key]) ? stripslashes($_GET[$key]) : null);
     }
 
     public static function forget($key) : void {

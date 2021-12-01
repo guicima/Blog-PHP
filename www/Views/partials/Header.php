@@ -15,7 +15,7 @@ $user = AuthController::isLoggedIn() ? new User(AuthController::isLoggedIn()['id
             <?php if ($user != null) : ?>
                 <div class="dropdown">
                     <a class="" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img class="" src="https://avatars.dicebear.com/api/jdenticon/<?= htmlentities( $user->name ) ?>.svg?b=%238e9dcc&r=50&size=40" alt="Profil">
+                        <img class="" src="https://avatars.dicebear.com/api/jdenticon/<?= escape( $user->name ) ?>.svg?b=%238e9dcc&r=50&size=40" alt="Profil">
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink">
