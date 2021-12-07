@@ -3,7 +3,10 @@ $user = AuthController::isLoggedIn() ? new User(AuthController::isLoggedIn()['id
 ?>
 <nav class="navbar navbar-expand-lg navbar-dark px-4 py-3" style="background-color: #7D84B2;">
     <a class="navbar-brand link-color-light" href="/"><img class="me-4" src="/assets/images/logo_light.svg">Cima</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button> -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
@@ -38,3 +41,22 @@ $user = AuthController::isLoggedIn() ? new User(AuthController::isLoggedIn()['id
         </div>
     </div>
 </nav>
+<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+    <a class="dropdown-item" href="/">Articles</a>
+    <a class="dropdown-item" target="_blank" href="/assets/CV.pdf">À propos</a>
+    <a class="dropdown-item" href="/contact">Contact</a>
+    <hr class="dropdown-divider">
+    <?php if ($user != null) : ?>
+        <a class="dropdown-item" href="/dashboard">Dashboard</a>
+        <?php if ($user->admin) : ?>
+            <a class="dropdown-item" href="/addpost">Nouvel article</a>
+            <a class="dropdown-item" href="/managepost">Gestion des articles</a>
+            <a class="dropdown-item" href="/managecomment">Gestion des commentaires</a>
+        <?php endif; ?>
+        <hr class="dropdown-divider">
+        <a class="dropdown-item" href="/logout">Se déconnecter</a>
+    <?php else : ?>
+        <a class="dropdown-item" href="/connexion" style="margin-left: 0rem; margin-right: 1.5rem">Se connecter</a>
+        <a class="dropdown-item" href="/inscription" style="margin-left: 1.5rem; margin-right: 3rem">S'incrire</a>
+    <?php endif; ?>
+</div>
