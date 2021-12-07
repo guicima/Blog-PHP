@@ -24,7 +24,7 @@
 }
 
 .main .mainblock {
-  width: clamp(500px, 65%, 90%);
+  width: clamp(300px, 65%, 90%);
   margin-top: 100px;
   margin-bottom: 100px;
   display: -ms-grid;
@@ -32,6 +32,15 @@
   -ms-grid-columns: (1fr)[4];
       grid-template-columns: repeat(4, 1fr);
   gap: 30px;
+}
+
+@media screen and (max-width: 800px) {
+  .main .mainblock {
+    display: block;
+  }
+  .main .mainblock > * {
+    margin-top: 20px;
+  }
 }
 
 .main .mainblock.no-margin-top {
@@ -81,6 +90,20 @@
   width: 50%;
 }
 
+@media screen and (max-width: 800px) {
+  .main .mainblock .container-element--full {
+    grid-column: span 4;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 550px;
+  }
+  .main .mainblock .container-element--full .img-container, .main .mainblock .container-element--full .content-box {
+    width: 100%;
+  }
+}
+
 .main .mainblock .container-element--half {
   grid-column: span 2;
   height: 550px;
@@ -103,6 +126,15 @@
 
 .main .mainblock .container-element--half .content-box {
   height: 50%;
+}
+
+@media screen and (max-width: 800px) {
+  .main .mainblock .container-element--half {
+    grid-column: span 4;
+  }
+  .main .mainblock .container-element--half .img-container {
+    height: auto;
+  }
 }
 
 .main .mainblock .container-element .content-box {
