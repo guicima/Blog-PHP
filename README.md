@@ -20,7 +20,7 @@ to run in detached mode
 
 | Container     | Folder        | Address                                          |
 | ------------- | ------------- |:------------------------------------------------:|
-| Apache/PHP    | ``./www``     | [http://localhost/](http://localhost/)           |
-| MySql         | ``./mysql``   | [http://localhost:3306/](http://localhost:3306/) |
-| phpMyAdmin    | none          | [http://localhost:8080/](http://localhost:8080/) |
-| MailHog       | none          | [http://localhost:8025/](http://localhost:8025/) |
+| Apache/PHP    | ``./www``     | [http://localhost:9050/](http://localhost:9050/)           |
+| MySql         | ``./mysql``   | [http://localhost:9060/](http://localhost:9060/) |
+| phpMyAdmin    | none          | [http://localhost:9070/](http://localhost:9070/) |
+| MailHog       | none          | [http://localhost:9080/](http://localhost:9080/) |

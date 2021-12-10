@@ -4,6 +4,10 @@ Route::set('index.php', function () {
     HomeController::LoadView('Home');
 });
 
+Route::set('articles', function () {
+    PostsController::LoadView('Posts');
+});
+
 Route::set('a-propos', function () {
     AboutController::LoadView('About');
 });

@@ -5,7 +5,7 @@ services:
         container_name: blog-php-web
         build: .
         ports:
-            - "80:80"
+            - "9050:80" # expose port 9050 to avoid conflit with default apache port (otherwise, it should be 80)
         volumes:
             - ./www:/var/www/html
         links:
@@ -16,7 +16,7 @@ services:
         volumes:
             - ./mysql-dump:/docker-entrypoint-initdb.d
         ports:
-            - "3306:3306"
+            - "9060:3306" # expose port 9060 to avoid conflit with default mysql port (otherwise, it should be 3306)
         environment:
             MYSQL_ROOT_PASSWORD: root
             MYSQL_DATABASE: BlogPHP
@@ -26,7 +26,7 @@ services:
         container_name: blog-php-myadmin
         image: phpmyadmin/phpmyadmin
         ports:
-            - "8080:80"
+            - "9070:80"
         links:
             - db:db
     mailhog:
@@ -35,4 +35,4 @@ services:
         restart: always
         ports:
         - 1025:1025
-        - 8025:8025
+        - 9080:8025

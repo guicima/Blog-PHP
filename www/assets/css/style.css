@@ -24,7 +24,7 @@
 }
 
 .main .mainblock {
-  width: clamp(300px, 65%, 90%);
+  width: clamp(385px, 65%, 90%);
   margin-top: 100px;
   margin-bottom: 100px;
   display: -ms-grid;
