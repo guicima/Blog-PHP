@@ -11,7 +11,8 @@ $user = AuthController::isLoggedIn() ? new User(AuthController::isLoggedIn()['id
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link mx-4 <?= self::$url == 'index.php' ? 'active' : '' ?>" href="/">Articles</a>
+            <a class="nav-item nav-link mx-4 <?= self::$url == 'index.php' ? 'active' : '' ?>" href="/">Accueil</a>
+            <a class="nav-item nav-link mx-4 <?= self::$url == 'articles' ? 'active' : '' ?>" href="/articles">Articles</a>
             <a class="nav-item nav-link mx-4 <?= self::$url == 'a-propos' ? 'active' : '' ?>" target="_blank" href="/assets/CV.pdf">À propos</a>
             <a class="nav-item nav-link <?= self::$url == 'contact' ? 'active' : '' ?>" href="/contact" style="margin-left: 1.5rem; margin-right: 3rem">Contact</a>
 
@@ -42,7 +43,8 @@ $user = AuthController::isLoggedIn() ? new User(AuthController::isLoggedIn()['id
     </div>
 </nav>
 <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
-    <a class="dropdown-item" href="/">Articles</a>
+    <a class="dropdown-item" href="/">Accueil</a>
+    <a class="dropdown-item" href="/articles">Articles</a>
     <a class="dropdown-item" target="_blank" href="/assets/CV.pdf">À propos</a>
     <a class="dropdown-item" href="/contact">Contact</a>
     <hr class="dropdown-divider">

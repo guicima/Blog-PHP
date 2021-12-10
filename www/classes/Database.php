@@ -2,7 +2,7 @@
     class Database  
     {
         public static $host = "blog-php-db";
-        public static $port = "3306";
+        public static $port = "3306"; // despite any changes in docker container port, this should remain 3306
         public static $dbName = "BlogPHP";
         public static $username = "root";
         public static $password = "root";
